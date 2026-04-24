@@ -1,0 +1,85 @@
+<div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div
+        class="max-w-md w-full space-y-8 p-10 bg-white rounded-xl shadow-lg border border-gray-100">
+
+        <div class="text-center">
+            <h2 class="mt-6 text-3xl font-extrabold text-gray-900">
+                ChromaDress
+            </h2>
+            <p class="mt-2 text-sm text-gray-600 font-medium">
+                Crea il tuo account e inizia a creare outfit
+            </p>
+        </div>
+
+        <form class="mt-8 space-y-6" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="rounded-md -space-y-px">
+
+                <div class="mb-4">
+                    <label for="username"
+                        class="block text-sm font-medium text-gray-700 mb-1">Username</label>
+                    <input id="username" type="text" formControlName="username" required
+                        class="appearance-none rounded-lg relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                        placeholder="Scegli un username">
+                </div>
+
+                <div class="mb-4">
+                    <label for="email"
+                        class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <input id="email" type="email" formControlName="email" required
+                        class="appearance-none rounded-lg relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                        placeholder="esempio@email.it">
+                </div>
+
+                <div class="mb-4">
+                    <label for="password"
+                        class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                    <input id="password" type="password" formControlName="password" required
+                        class="appearance-none rounded-lg relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                        placeholder="••••••••">
+                </div>
+
+                <div class="mb-4">
+                    <label for="confirmPassword"
+                        class="block text-sm font-medium text-gray-700 mb-1">Conferma
+                        Password</label>
+                    <input id="confirmPassword" type="password" formControlName="confirmPassword"
+                        required
+                        class="appearance-none rounded-lg relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                        placeholder="Ripeti la password">
+
+                    @if (registerForm.errors?.['passwordMismatch'] &&
+                    registerForm.get('confirmPassword')?.touched) {
+                    <p class="text-red-500 text-xs mt-1 ml-1">Le password non coincidono.</p>
+                    }
+                </div>
+            </div>
+
+            @if (errorMessage) {
+            <div class="bg-red-50 border-l-4 border-red-400 p-4 animate-pulse">
+                <div class="flex">
+                    <div class="text-sm text-red-700">
+                        {{ errorMessage }}
+                    </div>
+                </div>
+            </div>
+            }
+
+            <div>
+                <button type="submit" [disabled]="registerForm.invalid"
+                    class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all">
+                    Registrati e Inizia
+                </button>
+            </div>
+        </form>
+
+        <div class="text-center mt-4">
+            <p class="text-sm text-gray-600">
+                Hai già un account?
+                <a routerLink="/auth/login"
+                    class="font-medium text-indigo-600 hover:text-indigo-500 hover:cursor-pointer">
+                    Accedi qui
+                </a>
+            </p>
+        </div>
+    </div>
+</div>

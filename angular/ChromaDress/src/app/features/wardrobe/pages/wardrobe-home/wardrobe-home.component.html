@@ -1,0 +1,193 @@
+<div class="max-w-7xl mx-auto p-6">
+    <header class="flex justify-between items-end mb-10">
+        <div>
+            <h1 class="text-4xl font-extrabold text-gray-900 tracking-tight">Il mio Armadio</h1>
+            <p class="text-gray-500 mt-1">Hai {{ clothingService.items().length }} capi salvati</p>
+        </div>
+        <button (click)="openUploadModal()"
+            class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl shadow-sm transition-all flex items-center font-semibold cursor-pointer">
+            <span class="mr-2 text-xl">+</span> Aggiungi Capo
+        </button>
+    </header>
+
+    <div class="flex flex-col md:flex-row gap-4 mb-8 items-center justify-between">
+
+        <div class="flex gap-2 overflow-x-auto pb-2 w-full md:w-auto">
+            @for (cat of ['ALL', 'TOPS', 'BOTTOMS', 'OUTERWEAR', 'SHOES']; track cat) {
+            <button (click)="selectedCategory.set(cat)" [class]="selectedCategory() === cat 
+          ? 'bg-indigo-600 text-white shadow-md cursor-pointer' 
+          : 'bg-white text-gray-600 hover:bg-gray-50 border-gray-200 cursor-pointer'"
+                class="px-4 py-2 rounded-full text-sm font-semibold border transition-all whitespace-nowrap">
+                {{ cat === 'ALL' ? 'Tutti' : cat }}
+            </button>
+            }
+        </div>
+
+        <div class="relative w-full md:w-64">
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
+                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </span>
+            <input type="text" [value]="searchQuery()"
+                (input)="searchQuery.set($any($event.target).value)" placeholder="Cerca un capo..."
+                class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition-all">
+        </div>
+    </div>
+
+    <div class="grid ...">
+        @for (item of filteredItems(); track item.id) {
+        }
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        @for (item of filteredItems(); track item.id) {
+        <div
+            class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <div class="relative h-64 bg-gray-50 overflow-hidden">
+                @if (item.imageUrl) {
+                <img [src]="item.imageUrl" [alt]="item.name" class="w-full h-full object-cover">
+                } @else {
+                <div class="w-full h-full flex items-center justify-center text-6xl opacity-20">👕
+                </div>
+                }
+                <div
+                    class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-indigo-600 shadow-sm uppercase">
+                    {{ item.category }}
+                </div>
+                <button (click)="onDelete(item.id!)"
+                    class="absolute top-3 right-3 bg-red-500 text-white p-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-600 shadow-md cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                </button>
+            </div>
+            <div class="p-5">
+                <h3 class="text-lg font-bold text-gray-800 leading-tight mb-1">{{ item.name }}</h3>
+
+                <div class="flex items-center gap-2 mb-3 p-1 bg-gray-50 rounded-lg w-fit">
+                    <button (click)="setPaletteType('CLASSIC')"
+                        [class.bg-white]="selectedPaletteType() === 'CLASSIC'"
+                        [class.shadow-sm]="selectedPaletteType() === 'CLASSIC'"
+                        class="px-2 py-1 text-[10px] font-bold rounded-md transition-all uppercase cursor-pointer">
+                        Classic
+                    </button>
+                    <button (click)="setPaletteType('WADA')"
+                        [class.bg-white]="selectedPaletteType() === 'WADA'"
+                        [class.shadow-sm]="selectedPaletteType() === 'WADA'"
+                        class="px-2 py-1 text-[10px] font-bold rounded-md transition-all uppercase cursor-pointer">
+                        WADA
+                    </button>
+                </div>
+
+                <div class="flex justify-between items-center mt-4">
+                    <button (click)="onGetSuggestions(item.id!)"
+                        class="text-sm font-medium text-indigo-600 hover:text-indigo-800 transition-colors cursor-pointer">
+                        Suggerisci Outfit →
+                    </button>
+                </div>
+            </div>
+        </div>
+        } @empty {
+        <div
+            class="col-span-full py-20 flex flex-col items-center justify-center bg-gray-50 rounded-3xl border-2 border-dashed border-gray-200">
+            <div class="text-6xl mb-4">📦</div>
+            <h3 class="text-xl font-bold text-gray-900">Armadio vuoto</h3>
+            <p class="text-gray-500">Non hai ancora caricato nessun capo d'abbigliamento.</p>
+        </div>
+        }
+    </div>
+
+    @if (isUploadModalOpen()) {
+    <div class="fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div class="fixed inset-0 bg-gray-900/50 backdrop-blur-sm" (click)="closeUploadModal()">
+        </div>
+        <div
+            class="relative bg-white rounded-3xl shadow-2xl p-8 w-full max-w-md border border-gray-100 animate-in zoom-in duration-200">
+            <button (click)="closeUploadModal()"
+                class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl font-bold">&times;</button>
+            <app-clothing-upload (uploadStarted)="isLoading.set(true)"
+                (uploadFinished)="isLoading.set(false); closeUploadModal()" />
+        </div>
+    </div>
+    }
+
+    @if (activeSuggestions().length > 0) {
+    <div class="fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div class="fixed inset-0 bg-indigo-900/40 backdrop-blur-md" (click)="closeSuggestions()">
+        </div>
+        <div
+            class="relative bg-white rounded-3xl shadow-2xl p-8 w-full max-w-4xl max-h-[90vh] overflow-y-auto border border-indigo-100 animate-in slide-in-from-bottom duration-300">
+            <button (click)="closeSuggestions()"
+                class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl font-bold">&times;</button>
+
+            <h2 class="text-3xl font-extrabold text-gray-900 mb-6">Abbinamenti Suggeriti</h2>
+
+            <div class="space-y-10">
+                @for (suggestion of activeSuggestions(); track suggestion.combinationId) {
+                <div class="bg-indigo-50/50 rounded-2xl p-6 border border-indigo-100">
+                    <div
+                        class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="bg-white px-3 py-1.5 rounded-lg border border-indigo-100 shadow-sm">
+                                <span
+                                    class="text-xs font-black text-indigo-600 uppercase tracking-tighter">Color
+                                    Palette</span>
+                            </div>
+
+                            <div class="flex -space-x-2"> @for (color of suggestion.paletteHex;
+                                track color) {
+                                <div [style.background-color]="color"
+                                    class="w-10 h-10 rounded-full border-4 border-white shadow-md transition-transform hover:scale-110 hover:z-10 cursor-help relative group"
+                                    [title]="color">
+                                    <span
+                                        class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-20">
+                                        {{ color }}
+                                    </span>
+                                </div>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="text-right">
+                            <span
+                                class="text-[10px] font-bold text-gray-400 uppercase block leading-none">Stile
+                                suggerito</span>
+                            <span class="text-sm font-extrabold text-gray-800">{{
+                                selectedPaletteType() }} Mix</span>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6 overflow-x-auto pb-4">
+                        @for (match of suggestion.matchingClothes; track match.id) {
+                        <div
+                            class="min-w-45 bg-white rounded-xl p-3 shadow-sm border border-indigo-50">
+                            <img [src]="match.imageUrl"
+                                class="w-full h-32 object-cover rounded-lg mb-3">
+                            <p class="text-sm font-bold text-gray-800">{{ match.name }}</p>
+                            <p class="text-xs text-indigo-500 uppercase">{{ match.category }}</p>
+                        </div>
+                        }
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+    }
+
+    @if (isLoading()) {
+    <div
+        class="fixed inset-0 z-100 flex flex-col items-center justify-center bg-white/60 backdrop-blur-md">
+        <div
+            class="w-16 h-16 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin">
+        </div>
+        <p class="mt-4 text-indigo-900 font-bold animate-pulse">L'AI sta analizzando il tuo stile...
+        </p>
+    </div>
+    }
+</div>
