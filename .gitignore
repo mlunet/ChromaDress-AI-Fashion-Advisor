@@ -1,17 +1,82 @@
-node_modules/
-target/
-dist/
-.angular/
-*.jar
-__pycache__/
-.venv/
-*.pyc
-uploads/
-testImages/
-.idea/
-.vscode/
-.DS_Store
+## SECURITY
+
 .env
 **/src/main/resources/application.properties
 **/src/main/resources/application-dev.properties
 **/src/main/resources/application-prod.properties
+
+## IDE
+
+# IntelliJ
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/
+
+# STS / Eclipse / NetBeans
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache
+/nbproject/private/
+/nbbuild/
+/nbdist/
+/.nb-gradle/
+
+# System files
+.DS_Store
+Thumbs.db
+*.sublime-workspace
+*.launch
+
+## JAVA
+
+**/target/
+**/build/
+**.jar
+**.war
+*.class
+.mvn/wrapper/maven-wrapper.jar
+HELP.md
+
+## ANGULAR
+
+**/node_modules/
+**/dist/
+**/tmp/
+**/out-tsc/
+**/bazel-out/
+**/.angular/cache
+.sass-cache/
+connect.lock
+/coverage/
+/typings
+__screenshots__/
+npm-debug.log*
+yarn-error.log*
+testem.log
+libpeerconnection.log
+
+## PYTHON
+
+**/__pycache__/
+**/.venv/
+**/venv/
+*.pyc
+.pytest_cache/
+
+## DATA
+
+**/uploads/
+**/testImages/
