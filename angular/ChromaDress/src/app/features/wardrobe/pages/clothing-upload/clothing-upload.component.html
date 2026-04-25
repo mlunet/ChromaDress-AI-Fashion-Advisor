@@ -1,34 +1,39 @@
 <div class="space-y-6">
     <div class="text-center">
-        <h2 class="text-2xl font-bold text-gray-900">Nuovo Capo</h2>
-        <p class="text-sm text-gray-500">Aggiungi un vestito al tuo armadio digitale</p>
+        <h2 class="text-2xl font-bold text-gray-900" i18n="@@upload.title">New Garment</h2>
+        <p class="text-sm text-gray-500" i18n="@@upload.subtitle">Add a garment to your digital
+            wardrobe</p>
     </div>
 
     <form [formGroup]="uploadForm" (ngSubmit)="onUpload()" class="space-y-5">
         <div class="rounded-md -space-y-px">
             <div class="mb-4">
-                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome
-                    Capo</label>
+                <label for="name" class="block text-sm font-medium text-gray-700 mb-1"
+                    i18n="@@upload.nameLabel">Garment Name</label>
                 <input id="name" type="text" formControlName="name" required
                     class="appearance-none rounded-lg relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                    placeholder="Es: Camicia di lino">
+                    placeholder="E.g., Linen shirt" i18n-placeholder="@@upload.namePlaceholder">
             </div>
 
             <div class="mb-4">
-                <label for="category"
-                    class="block text-sm font-medium text-gray-700 mb-1">Categoria</label>
+                <label for="category" class="block text-sm font-medium text-gray-700 mb-1"
+                    i18n="@@upload.categoryLabel">Category</label>
                 <select id="category" formControlName="category" required
                     class="appearance-none rounded-lg relative block w-full px-3 py-3 border border-gray-300 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm cursor-pointer">
-                    <option value="" disabled selected>Seleziona categoria</option>
-                    <option value="TOPS">Sopra (T-shirt, Camicie)</option>
-                    <option value="BOTTOMS">Sotto (Pantaloni, Gonne)</option>
-                    <option value="OUTERWEAR">Giacche</option>
-                    <option value="SHOES">Scarpe</option>
+                    <option value="" disabled selected i18n="@@upload.categorySelect">Select
+                        category</option>
+                    <option value="TOPS" i18n="@@upload.categoryTops">Tops (T-shirts, Shirts)
+                    </option>
+                    <option value="BOTTOMS" i18n="@@upload.categoryBottoms">Bottoms (Pants, Skirts)
+                    </option>
+                    <option value="OUTERWEAR" i18n="@@upload.categoryOuterwear">Outerwear</option>
+                    <option value="SHOES" i18n="@@upload.categoryShoes">Shoes</option>
                 </select>
             </div>
 
             <div class="mb-4">
-                <label class="block text-sm font-medium text-gray-700 mb-1">Foto</label>
+                <label class="block text-sm font-medium text-gray-700 mb-1"
+                    i18n="@@upload.photoLabel">Photo</label>
 
                 <label for="file-upload"
                     class="mt-1 flex flex-col items-center justify-center px-6 py-10 border-2 border-gray-300 border-dashed rounded-2xl hover:border-indigo-400 hover:bg-indigo-50/30 transition-all cursor-pointer group">
@@ -45,10 +50,10 @@
                         </svg>
 
                         <div class="text-sm text-gray-600">
-                            <span
-                                class="font-semibold text-indigo-600 group-hover:text-indigo-700">Carica
-                                un file</span>
-                            <p class="text-xs text-gray-500 mt-1">PNG, JPG fino a 10MB</p>
+                            <span class="font-semibold text-indigo-600 group-hover:text-indigo-700"
+                                i18n="@@upload.fileUpload">Upload a file</span>
+                            <p class="text-xs text-gray-500 mt-1" i18n="@@upload.fileRequirements">
+                                PNG, JPG up to 10MB</p>
                         </div>
 
                         @if (selectedFile) {
@@ -73,8 +78,9 @@
 
         <div>
             <button type="submit" [disabled]="uploadForm.invalid || !selectedFile"
-                class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all">
-                Analizza e Salva
+                class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                i18n="@@upload.submitButton">
+                Analyze and Save
             </button>
         </div>
     </form>

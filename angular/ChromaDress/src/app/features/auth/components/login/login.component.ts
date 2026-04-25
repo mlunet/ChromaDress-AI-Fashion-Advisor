@@ -27,11 +27,11 @@ export class LoginComponent {
 
       this.authService.login(credentials).subscribe({
         next: () => {
-          console.log('Login successful.');
+          console.log($localize`:@@login.successLog:Login successful.`);
           this.router.navigate(['/wardrobe']);
         },
         error: (err) => {
-          this.errorMessage = 'Invalid credentials.';
+          this.errorMessage = $localize`:@@login.errorInvalid:Invalid username or password.`;
           console.error(err);
         },
       });

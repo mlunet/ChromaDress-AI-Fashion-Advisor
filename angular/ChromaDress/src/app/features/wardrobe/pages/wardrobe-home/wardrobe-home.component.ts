@@ -33,7 +33,8 @@ export class WardrobeHomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.clothingService.loadCloset().subscribe({
-      error: (err) => console.error('Error during closet loading.', err),
+      error: (err) =>
+        console.error($localize`:@@wardrobe.errorLoading:Error during wardrobe loading.`, err),
     });
   }
 
@@ -46,7 +47,8 @@ export class WardrobeHomeComponent implements OnInit {
   }
 
   onDelete(id: number): void {
-    if (confirm('Are you sure you want to delete this clothing item?')) {
+    const confirmMessage = $localize`:@@wardrobe.confirmDelete:Are you sure you want to delete this item?`;
+    if (confirm(confirmMessage)) {
       this.clothingService.deleteItem(id).subscribe();
     }
   }
@@ -59,7 +61,7 @@ export class WardrobeHomeComponent implements OnInit {
         this.isLoading.set(false);
       },
       error: (err) => {
-        console.error(err);
+        console.error($localize`:@@wardrobe.errorSuggestions:Error getting suggestions.`, err);
         this.isLoading.set(false);
       },
     });

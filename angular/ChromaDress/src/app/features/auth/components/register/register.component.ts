@@ -34,12 +34,12 @@ export class RegisterComponent {
 
       this.authService.register({ username, password, email } as any).subscribe({
         next: () => {
-          console.log('Registered and logged in successfully.');
+          console.log($localize`:@@register.successLog:Registered and logged in successfully.`);
           this.router.navigate(['/wardrobe']);
         },
         error: (err) => {
-          this.errorMessage = 'Error during registration.';
-          console.error('err');
+          this.errorMessage = $localize`:@@register.errorGeneric:Error during registration. Please try again.`;
+          console.error(err);
         },
       });
     }

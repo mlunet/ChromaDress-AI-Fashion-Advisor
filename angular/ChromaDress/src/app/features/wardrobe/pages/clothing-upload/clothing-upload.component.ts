@@ -1,7 +1,6 @@
 import { Component, inject, output } from '@angular/core';
 import { ClothingService } from '../../services/clothing.service';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { HotToastService } from '@ngxpert/hot-toast';
 
 @Component({
   selector: 'app-clothing-upload',
@@ -12,7 +11,6 @@ import { HotToastService } from '@ngxpert/hot-toast';
 export class ClothingUploadComponent {
   private fb = inject(FormBuilder);
   private clothingService = inject(ClothingService);
-  private toast = inject(HotToastService);
 
   uploadStarted = output<void>();
   uploadFinished = output<void>();
@@ -43,7 +41,7 @@ export class ClothingUploadComponent {
           this.selectedFile = null;
         },
         error: (err) => {
-          console.error('Error during upload.', err);
+          console.error($localize`:@@upload.errorLog:Error during upload.`, err);
           this.uploadFinished.emit();
         },
       });

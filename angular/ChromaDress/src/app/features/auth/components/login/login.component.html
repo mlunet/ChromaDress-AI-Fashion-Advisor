@@ -6,8 +6,8 @@
             <h2 class="mt-6 text-3xl font-extrabold text-gray-900">
                 ChromaDress
             </h2>
-            <p class="mt-2 text-sm text-gray-600 font-medium">
-                Accedi al tuo armadio digitale
+            <p class="mt-2 text-sm text-gray-600 font-medium" i18n="@@login.subtitle">
+                Access your digital wardrobe
             </p>
         </div>
 
@@ -15,16 +15,16 @@
             <div class="rounded-md -space-y-px">
 
                 <div class="mb-4">
-                    <label for="username"
-                        class="block text-sm font-medium text-gray-700 mb-1">Username</label>
+                    <label for="username" class="block text-sm font-medium text-gray-700 mb-1"
+                        i18n="@@login.usernameLabel">Username</label>
                     <input id="username" type="text" formControlName="username" required
                         class="appearance-none rounded-lg relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                        placeholder="Il tuo username">
+                        placeholder="Your username" i18n-placeholder="@@login.usernamePlaceholder">
                 </div>
 
                 <div class="mb-4">
-                    <label for="password"
-                        class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                    <label for="password" class="block text-sm font-medium text-gray-700 mb-1"
+                        i18n="@@login.passwordLabel">Password</label>
                     <input id="password" type="password" formControlName="password" required
                         class="appearance-none rounded-lg relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                         placeholder="••••••••">
@@ -43,18 +43,20 @@
 
             <div>
                 <button type="submit" [disabled]="loginForm.invalid"
-                    class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all">
-                    Accedi
+                    class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                    i18n="@@login.submitButton">
+                    Log In
                 </button>
             </div>
         </form>
 
         <div class="text-center mt-4">
             <p class="text-sm text-gray-600">
-                Non hai un account?
+                <span i18n="@@login.noAccount">Don't have an account?</span>
                 <a routerLink="/auth/register"
-                    class="font-medium text-indigo-600 hover:text-indigo-500 hover:cursor-pointer">
-                    Registrati ora
+                    class="font-medium text-indigo-600 hover:text-indigo-500 hover:cursor-pointer"
+                    i18n="@@login.registerLink">
+                    Register now
                 </a>
             </p>
         </div>

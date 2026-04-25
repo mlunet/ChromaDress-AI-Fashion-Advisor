@@ -6,8 +6,8 @@
             <h2 class="mt-6 text-3xl font-extrabold text-gray-900">
                 ChromaDress
             </h2>
-            <p class="mt-2 text-sm text-gray-600 font-medium">
-                Crea il tuo account e inizia a creare outfit
+            <p class="mt-2 text-sm text-gray-600 font-medium" i18n="@@register.subtitle">
+                Create your account and start building outfits
             </p>
         </div>
 
@@ -15,24 +15,26 @@
             <div class="rounded-md -space-y-px">
 
                 <div class="mb-4">
-                    <label for="username"
-                        class="block text-sm font-medium text-gray-700 mb-1">Username</label>
+                    <label for="username" class="block text-sm font-medium text-gray-700 mb-1"
+                        i18n="@@register.usernameLabel">Username</label>
                     <input id="username" type="text" formControlName="username" required
                         class="appearance-none rounded-lg relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                        placeholder="Scegli un username">
+                        placeholder="Choose a username"
+                        i18n-placeholder="@@register.usernamePlaceholder">
                 </div>
 
                 <div class="mb-4">
-                    <label for="email"
-                        class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1"
+                        i18n="@@register.emailLabel">Email</label>
                     <input id="email" type="email" formControlName="email" required
                         class="appearance-none rounded-lg relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                        placeholder="esempio@email.it">
+                        placeholder="example@email.com"
+                        i18n-placeholder="@@register.emailPlaceholder">
                 </div>
 
                 <div class="mb-4">
-                    <label for="password"
-                        class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                    <label for="password" class="block text-sm font-medium text-gray-700 mb-1"
+                        i18n="@@register.passwordLabel">Password</label>
                     <input id="password" type="password" formControlName="password" required
                         class="appearance-none rounded-lg relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                         placeholder="••••••••">
@@ -40,16 +42,18 @@
 
                 <div class="mb-4">
                     <label for="confirmPassword"
-                        class="block text-sm font-medium text-gray-700 mb-1">Conferma
-                        Password</label>
+                        class="block text-sm font-medium text-gray-700 mb-1"
+                        i18n="@@register.confirmPasswordLabel">Confirm Password</label>
                     <input id="confirmPassword" type="password" formControlName="confirmPassword"
                         required
                         class="appearance-none rounded-lg relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                        placeholder="Ripeti la password">
+                        placeholder="Repeat your password"
+                        i18n-placeholder="@@register.confirmPasswordPlaceholder">
 
                     @if (registerForm.errors?.['passwordMismatch'] &&
                     registerForm.get('confirmPassword')?.touched) {
-                    <p class="text-red-500 text-xs mt-1 ml-1">Le password non coincidono.</p>
+                    <p class="text-red-500 text-xs mt-1 ml-1" i18n="@@register.passwordMismatch">
+                        Passwords do not match.</p>
                     }
                 </div>
             </div>
@@ -66,18 +70,20 @@
 
             <div>
                 <button type="submit" [disabled]="registerForm.invalid"
-                    class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all">
-                    Registrati e Inizia
+                    class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                    i18n="@@register.submitButton">
+                    Register & Start
                 </button>
             </div>
         </form>
 
         <div class="text-center mt-4">
             <p class="text-sm text-gray-600">
-                Hai già un account?
+                <span i18n="@@register.hasAccount">Already have an account?</span>
                 <a routerLink="/auth/login"
-                    class="font-medium text-indigo-600 hover:text-indigo-500 hover:cursor-pointer">
-                    Accedi qui
+                    class="font-medium text-indigo-600 hover:text-indigo-500 hover:cursor-pointer"
+                    i18n="@@register.loginLink">
+                    Log in here
                 </a>
             </p>
         </div>

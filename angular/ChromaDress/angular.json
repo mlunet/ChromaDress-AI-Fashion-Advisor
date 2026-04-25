@@ -12,6 +12,12 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "it": "src/locale/messages.it.xlf"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular/build:application",
@@ -24,10 +30,13 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.css", "@ngxpert/hot-toast/styles.css"]
+            "styles": ["src/styles.css", "@ngxpert/hot-toast/styles.css"],
+            "polyfills": ["@angular/localize/init"],
+            "localize": true
           },
           "configurations": {
             "production": {
+              "localize": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -49,9 +58,13 @@
               ]
             },
             "development": {
+              "localize": true,
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "it": {
+              "localize": ["it"]
             }
           },
           "defaultConfiguration": "production"
@@ -64,6 +77,9 @@
             },
             "development": {
               "buildTarget": "ChromaDress:build:development"
+            },
+            "it": {
+              "buildTarget": "ChromaDress:build:development,it"
             }
           },
           "defaultConfiguration": "development"

@@ -1,12 +1,15 @@
 <div class="max-w-7xl mx-auto p-6">
     <header class="flex justify-between items-end mb-10">
         <div>
-            <h1 class="text-4xl font-extrabold text-gray-900 tracking-tight">Il mio Armadio</h1>
-            <p class="text-gray-500 mt-1">Hai {{ clothingService.items().length }} capi salvati</p>
+            <h1 class="text-4xl font-extrabold text-gray-900 tracking-tight"
+                i18n="@@wardrobe.title">My Wardrobe</h1>
+            <p class="text-gray-500 mt-1" i18n="@@wardrobe.itemCount">You have {{
+                clothingService.items().length }} garments saved</p>
         </div>
         <button (click)="openUploadModal()"
-            class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl shadow-sm transition-all flex items-center font-semibold cursor-pointer">
-            <span class="mr-2 text-xl">+</span> Aggiungi Capo
+            class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl shadow-sm transition-all flex items-center font-semibold cursor-pointer"
+            i18n="@@wardrobe.addGarment">
+            <span class="mr-2 text-xl">+</span> Add Garment
         </button>
     </header>
 
@@ -18,7 +21,7 @@
           ? 'bg-indigo-600 text-white shadow-md cursor-pointer' 
           : 'bg-white text-gray-600 hover:bg-gray-50 border-gray-200 cursor-pointer'"
                 class="px-4 py-2 rounded-full text-sm font-semibold border transition-all whitespace-nowrap">
-                {{ cat === 'ALL' ? 'Tutti' : cat }}
+                {{ cat === 'ALL' ? 'All' : cat }}
             </button>
             }
         </div>
@@ -31,14 +34,11 @@
                 </svg>
             </span>
             <input type="text" [value]="searchQuery()"
-                (input)="searchQuery.set($any($event.target).value)" placeholder="Cerca un capo..."
+                (input)="searchQuery.set($any($event.target).value)"
+                placeholder="Search for a garment..."
+                i18n-placeholder="@@wardrobe.searchPlaceholder"
                 class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition-all">
         </div>
-    </div>
-
-    <div class="grid ...">
-        @for (item of filteredItems(); track item.id) {
-        }
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
@@ -85,8 +85,9 @@
 
                 <div class="flex justify-between items-center mt-4">
                     <button (click)="onGetSuggestions(item.id!)"
-                        class="text-sm font-medium text-indigo-600 hover:text-indigo-800 transition-colors cursor-pointer">
-                        Suggerisci Outfit →
+                        class="text-sm font-medium text-indigo-600 hover:text-indigo-800 transition-colors cursor-pointer"
+                        i18n="@@wardrobe.suggestOutfit">
+                        Suggest Outfit →
                     </button>
                 </div>
             </div>
@@ -95,8 +96,10 @@
         <div
             class="col-span-full py-20 flex flex-col items-center justify-center bg-gray-50 rounded-3xl border-2 border-dashed border-gray-200">
             <div class="text-6xl mb-4">📦</div>
-            <h3 class="text-xl font-bold text-gray-900">Armadio vuoto</h3>
-            <p class="text-gray-500">Non hai ancora caricato nessun capo d'abbigliamento.</p>
+            <h3 class="text-xl font-bold text-gray-900" i18n="@@wardrobe.emptyTitle">Empty Wardrobe
+            </h3>
+            <p class="text-gray-500" i18n="@@wardrobe.emptyDescription">You haven't uploaded any
+                garments yet.</p>
         </div>
         }
     </div>
@@ -124,7 +127,8 @@
             <button (click)="closeSuggestions()"
                 class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl font-bold">&times;</button>
 
-            <h2 class="text-3xl font-extrabold text-gray-900 mb-6">Abbinamenti Suggeriti</h2>
+            <h2 class="text-3xl font-extrabold text-gray-900 mb-6"
+                i18n="@@wardrobe.suggestionsTitle">Suggested Combinations</h2>
 
             <div class="space-y-10">
                 @for (suggestion of activeSuggestions(); track suggestion.combinationId) {
@@ -135,12 +139,12 @@
                             <div
                                 class="bg-white px-3 py-1.5 rounded-lg border border-indigo-100 shadow-sm">
                                 <span
-                                    class="text-xs font-black text-indigo-600 uppercase tracking-tighter">Color
-                                    Palette</span>
+                                    class="text-xs font-black text-indigo-600 uppercase tracking-tighter"
+                                    i18n="@@wardrobe.colorPalette">Color Palette</span>
                             </div>
 
-                            <div class="flex -space-x-2"> @for (color of suggestion.paletteHex;
-                                track color) {
+                            <div class="flex -space-x-2">
+                                @for (color of suggestion.paletteHex; track color) {
                                 <div [style.background-color]="color"
                                     class="w-10 h-10 rounded-full border-4 border-white shadow-md transition-transform hover:scale-110 hover:z-10 cursor-help relative group"
                                     [title]="color">
@@ -155,10 +159,11 @@
 
                         <div class="text-right">
                             <span
-                                class="text-[10px] font-bold text-gray-400 uppercase block leading-none">Stile
-                                suggerito</span>
+                                class="text-[10px] font-bold text-gray-400 uppercase block leading-none"
+                                i18n="@@wardrobe.suggestedStyle">Suggested Style</span>
                             <span class="text-sm font-extrabold text-gray-800">{{
-                                selectedPaletteType() }} Mix</span>
+                                selectedPaletteType() }} <span
+                                    i18n="@@wardrobe.mix">Mix</span></span>
                         </div>
                     </div>
 
@@ -186,8 +191,8 @@
         <div
             class="w-16 h-16 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin">
         </div>
-        <p class="mt-4 text-indigo-900 font-bold animate-pulse">L'AI sta analizzando il tuo stile...
-        </p>
+        <p class="mt-4 text-indigo-900 font-bold animate-pulse" i18n="@@wardrobe.aiAnalyzing">AI is
+            analyzing your style...</p>
     </div>
     }
 </div>

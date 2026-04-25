@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" target-language="it" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="nav.myWardrobe" datatype="html">
+        <source> My Wardrobe </source>
+        <target> Il mio Armadio </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">16,17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.login" datatype="html">
+        <source> Login </source>
+        <target> Accedi </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.register" datatype="html">
+        <source> Register </source>
+        <target> Registrati </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">32,33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.welcomeBack" datatype="html">
+        <source> Welcome back! </source>
+        <target> Bentornato! </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">36,37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nav.logout" datatype="html">
+        <source> Logout </source>
+        <target> Esci </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/core/components/navbar/navbar.component.html</context>
+          <context context-type="linenumber">41,42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.subtitle" datatype="html">
+        <source> Access your digital wardrobe </source>
+        <target> Accedi al tuo armadio digitale </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/components/login/login.component.html</context>
+          <context context-type="linenumber">10,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.usernameLabel" datatype="html">
+        <source>Username</source>
+        <target>Nome utente</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/components/login/login.component.html</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.usernamePlaceholder" datatype="html">
+        <source>Your username</source>
+        <target>Il tuo nome utente</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/components/login/login.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.passwordLabel" datatype="html">
+        <source>Password</source>
+        <target>Password</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/components/login/login.component.html</context>
+          <context context-type="linenumber">27,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.submitButton" datatype="html">
+        <source> Log In </source>
+        <target> Accedi </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/components/login/login.component.html</context>
+          <context context-type="linenumber">48,49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.noAccount" datatype="html">
+        <source>Don&apos;t have an account?</source>
+        <target>Non hai un account?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/components/login/login.component.html</context>
+          <context context-type="linenumber">55,56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.registerLink" datatype="html">
+        <source> Register now </source>
+        <target> Registrati ora </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/components/login/login.component.html</context>
+          <context context-type="linenumber">59,60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.successLog" datatype="html">
+        <source>Login successful.</source>
+        <target>Accesso effettuato con successo.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/components/login/login.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login.errorInvalid" datatype="html">
+        <source>Invalid username or password.</source>
+        <target>Nome utente o password non validi.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/components/login/login.component.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.subtitle" datatype="html">
+        <source> Create your account and start building outfits </source>
+        <target> Crea il tuo account e inizia a comporre outfit </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/components/register/register.component.html</context>
+          <context context-type="linenumber">10,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.usernameLabel" datatype="html">
+        <source>Username</source>
+        <target>Nome utente</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/components/register/register.component.html</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.usernamePlaceholder" datatype="html">
+        <source>Choose a username</source>
+        <target>Scegli un nome utente</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/components/register/register.component.html</context>
+          <context context-type="linenumber">22,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.emailLabel" datatype="html">
+        <source>Email</source>
+        <target>Email</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/components/register/register.component.html</context>
+          <context context-type="linenumber">28,29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.emailPlaceholder" datatype="html">
+        <source>example@email.com</source>
+        <target>esempio@email.com</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/components/register/register.component.html</context>
+          <context context-type="linenumber">31,32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.passwordLabel" datatype="html">
+        <source>Password</source>
+        <target>Password</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/components/register/register.component.html</context>
+          <context context-type="linenumber">37,38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.confirmPasswordLabel" datatype="html">
+        <source>Confirm Password</source>
+        <target>Conferma Password</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/components/register/register.component.html</context>
+          <context context-type="linenumber">46,47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.confirmPasswordPlaceholder" datatype="html">
+        <source>Repeat your password</source>
+        <target>Ripeti la tua password</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/components/register/register.component.html</context>
+          <context context-type="linenumber">50,51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.passwordMismatch" datatype="html">
+        <source> Passwords do not match.</source>
+        <target> Le password non corrispondono.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/components/register/register.component.html</context>
+          <context context-type="linenumber">56,57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.submitButton" datatype="html">
+        <source> Register &amp; Start </source>
+        <target> Registrati e Inizia </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/components/register/register.component.html</context>
+          <context context-type="linenumber">75,76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.hasAccount" datatype="html">
+        <source>Already have an account?</source>
+        <target>Hai già un account?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/components/register/register.component.html</context>
+          <context context-type="linenumber">82,83</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.loginLink" datatype="html">
+        <source> Log in here </source>
+        <target> Accedi qui </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/components/register/register.component.html</context>
+          <context context-type="linenumber">86,87</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.successLog" datatype="html">
+        <source>Registered and logged in successfully.</source>
+        <target>Registrazione e accesso completati con successo.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/components/register/register.component.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register.errorGeneric" datatype="html">
+        <source>Error during registration. Please try again.</source>
+        <target>Errore durante la registrazione. Riprova.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/auth/components/register/register.component.ts</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="upload.title" datatype="html">
+        <source>New Garment</source>
+        <target>Nuovo Capo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/wardrobe/pages/clothing-upload/clothing-upload.component.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="upload.subtitle" datatype="html">
+        <source>Add a garment to your digital wardrobe</source>
+        <target>Aggiungi un capo al tuo armadio digitale</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/wardrobe/pages/clothing-upload/clothing-upload.component.html</context>
+          <context context-type="linenumber">4,8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="upload.nameLabel" datatype="html">
+        <source>Garment Name</source>
+        <target>Nome del Capo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/wardrobe/pages/clothing-upload/clothing-upload.component.html</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="upload.namePlaceholder" datatype="html">
+        <source>E.g., Linen shirt</source>
+        <target>Es., Camicia di lino</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/wardrobe/pages/clothing-upload/clothing-upload.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="upload.categoryLabel" datatype="html">
+        <source>Category</source>
+        <target>Categoria</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/wardrobe/pages/clothing-upload/clothing-upload.component.html</context>
+          <context context-type="linenumber">20,21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="upload.categorySelect" datatype="html">
+        <source>Select category</source>
+        <target>Seleziona categoria</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/wardrobe/pages/clothing-upload/clothing-upload.component.html</context>
+          <context context-type="linenumber">24,25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="upload.categoryTops" datatype="html">
+        <source>Tops (T-shirts, Shirts) </source>
+        <target>Superiori (Magliette, Camicie) </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/wardrobe/pages/clothing-upload/clothing-upload.component.html</context>
+          <context context-type="linenumber">25,27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="upload.categoryBottoms" datatype="html">
+        <source>Bottoms (Pants, Skirts) </source>
+        <target>Inferiori (Pantaloni, Gonne) </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/wardrobe/pages/clothing-upload/clothing-upload.component.html</context>
+          <context context-type="linenumber">27,29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="upload.categoryOuterwear" datatype="html">
+        <source>Outerwear</source>
+        <target>Capispalla</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/wardrobe/pages/clothing-upload/clothing-upload.component.html</context>
+          <context context-type="linenumber">29,30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="upload.categoryShoes" datatype="html">
+        <source>Shoes</source>
+        <target>Scarpe</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/wardrobe/pages/clothing-upload/clothing-upload.component.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="upload.photoLabel" datatype="html">
+        <source>Photo</source>
+        <target>Foto</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/wardrobe/pages/clothing-upload/clothing-upload.component.html</context>
+          <context context-type="linenumber">36,38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="upload.fileUpload" datatype="html">
+        <source>Upload a file</source>
+        <target>Carica un file</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/wardrobe/pages/clothing-upload/clothing-upload.component.html</context>
+          <context context-type="linenumber">54,55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="upload.fileRequirements" datatype="html">
+        <source> PNG, JPG up to 10MB</source>
+        <target> PNG, JPG fino a 10MB</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/wardrobe/pages/clothing-upload/clothing-upload.component.html</context>
+          <context context-type="linenumber">56,57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="upload.submitButton" datatype="html">
+        <source> Analyze and Save </source>
+        <target> Analizza e Salva </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/wardrobe/pages/clothing-upload/clothing-upload.component.html</context>
+          <context context-type="linenumber">83,84</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="upload.errorLog" datatype="html">
+        <source>Error during upload.</source>
+        <target>Errore durante il caricamento.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/wardrobe/pages/clothing-upload/clothing-upload.component.ts</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="wardrobe.title" datatype="html">
+        <source>My Wardrobe</source>
+        <target>Il mio Armadio</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/wardrobe/pages/wardrobe-home/wardrobe-home.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="wardrobe.itemCount" datatype="html">
+        <source>You have <x id="INTERPOLATION" equiv-text="{{
+                clothingService.items().length }}"/> garments saved</source>
+        <target>Hai <x id="INTERPOLATION" equiv-text="{{
+                clothingService.items().length }}"/> capi salvati</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/wardrobe/pages/wardrobe-home/wardrobe-home.component.html</context>
+          <context context-type="linenumber">6,8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="wardrobe.addGarment" datatype="html">
+        <source><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;mr-2 text-xl&quot;&gt;"/>+<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> Add Garment </source>
+        <target><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;mr-2 text-xl&quot;&gt;"/>+<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> Aggiungi Capo </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/wardrobe/pages/wardrobe-home/wardrobe-home.component.html</context>
+          <context context-type="linenumber">12,14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="wardrobe.searchPlaceholder" datatype="html">
+        <source>Search for a garment...</source>
+        <target>Cerca un capo...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/wardrobe/pages/wardrobe-home/wardrobe-home.component.html</context>
+          <context context-type="linenumber">38,39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="wardrobe.suggestOutfit" datatype="html">
+        <source> Suggest Outfit → </source>
+        <target> Suggerisci Outfit → </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/wardrobe/pages/wardrobe-home/wardrobe-home.component.html</context>
+          <context context-type="linenumber">90,91</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="wardrobe.emptyTitle" datatype="html">
+        <source>Empty Wardrobe </source>
+        <target>Armadio Vuoto </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/wardrobe/pages/wardrobe-home/wardrobe-home.component.html</context>
+          <context context-type="linenumber">99,101</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="wardrobe.emptyDescription" datatype="html">
+        <source>You haven&apos;t uploaded any garments yet.</source>
+        <target>Non hai ancora caricato nessun capo.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/wardrobe/pages/wardrobe-home/wardrobe-home.component.html</context>
+          <context context-type="linenumber">101,104</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="wardrobe.suggestionsTitle" datatype="html">
+        <source>Suggested Combinations</source>
+        <target>Combinazioni Suggerite</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/wardrobe/pages/wardrobe-home/wardrobe-home.component.html</context>
+          <context context-type="linenumber">131,133</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="wardrobe.colorPalette" datatype="html">
+        <source>Color Palette</source>
+        <target>Palette Colori</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/wardrobe/pages/wardrobe-home/wardrobe-home.component.html</context>
+          <context context-type="linenumber">143,144</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="wardrobe.suggestedStyle" datatype="html">
+        <source>Suggested Style</source>
+        <target>Stile Suggerito</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/wardrobe/pages/wardrobe-home/wardrobe-home.component.html</context>
+          <context context-type="linenumber">163,164</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="wardrobe.mix" datatype="html">
+        <source>Mix</source>
+        <target>Mix</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/wardrobe/pages/wardrobe-home/wardrobe-home.component.html</context>
+          <context context-type="linenumber">166,167</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="wardrobe.aiAnalyzing" datatype="html">
+        <source>AI is analyzing your style...</source>
+        <target>L&apos;IA sta analizzando il tuo stile...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/wardrobe/pages/wardrobe-home/wardrobe-home.component.html</context>
+          <context context-type="linenumber">195,198</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="wardrobe.errorLoading" datatype="html">
+        <source>Error during wardrobe loading.</source>
+        <target>Errore durante il caricamento dell&apos;armadio.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/wardrobe/pages/wardrobe-home/wardrobe-home.component.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="wardrobe.confirmDelete" datatype="html">
+        <source>Are you sure you want to delete this item?</source>
+        <target>Sei sicuro di voler eliminare questo capo?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/wardrobe/pages/wardrobe-home/wardrobe-home.component.ts</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="wardrobe.errorSuggestions" datatype="html">
+        <source>Error getting suggestions.</source>
+        <target>Errore durante la generazione dei suggerimenti.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/wardrobe/pages/wardrobe-home/wardrobe-home.component.ts</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
