@@ -27,4 +27,10 @@ export const routes: Routes = [
         (m) => m.WardrobeHomeComponent,
       ),
   },
+  {
+    path: '**',
+    canActivate: [authGuard],
+    redirectTo: 'wardrobe',
+    pathMatch: 'full',
+  },
 ];
