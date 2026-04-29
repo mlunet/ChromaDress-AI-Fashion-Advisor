@@ -6,4 +6,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 EXPOSE 5000
 ENV PYTHONPATH=/app
-CMD ["python", "app/main.py"]
+CMD ["fastapi", "run", "app/main.py", "--port", "5000"]

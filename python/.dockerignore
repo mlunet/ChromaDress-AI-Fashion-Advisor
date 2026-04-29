@@ -6,3 +6,6 @@ __pycache__
 *.pyd
 .db
 .env
+!models/clip_onnx/
+.cache/
+.huggingface/

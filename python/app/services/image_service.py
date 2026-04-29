@@ -74,11 +74,9 @@ class ImageService:
                 return 0 if mx == mn else (mx - mn) / (1 - abs(2 * ((mx + mn) / 2) - 1))
 
             dominant = max(kmeans.cluster_centers_, key=get_saturation)
-            print(
-                f"DEBUG: Extracted Dominant: {"#{:02x}{:02x}{:02x}".format(
+            print(f"DEBUG: Extracted Dominant: {"#{:02x}{:02x}{:02x}".format(
                 int(dominant[0]), int(dominant[1]), int(dominant[2])
-            )}"
-            )
+            )}")
 
             return "#{:02x}{:02x}{:02x}".format(
                 int(dominant[0]), int(dominant[1]), int(dominant[2])
