@@ -54,8 +54,8 @@ If you prefer to run services individually for debugging:
 * **AI Service:** Create a Python virtual environment and install dependencies:
   ```bash
   cd python
-  pip install -r requirements.txt
   pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+  pip install -r requirements.txt
   ```
 
 ---
