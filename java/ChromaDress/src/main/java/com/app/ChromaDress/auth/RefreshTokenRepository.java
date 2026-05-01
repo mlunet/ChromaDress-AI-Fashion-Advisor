@@ -12,12 +12,13 @@ import java.util.Optional;
 
 @Repository
 public interface RefreshTokenRepository extends JpaRepository<RefreshToken, Long> {
-    Optional<RefreshToken> findByToken(String token);
 
-    @Modifying
-    @Transactional
-    @Query("UPDATE RefreshToken r SET r.revoked = true WHERE r.user = :user AND r.revoked = false")
-    void revokeAllByUser(@Param("user") User user);
+  Optional<RefreshToken> findByToken(String token);
 
-    void deleteByUser(User user);
+  @Modifying
+  @Transactional
+  @Query("UPDATE RefreshToken r SET r.revoked = true WHERE r.user = :user AND r.revoked = false")
+  void revokeAllByUser(@Param("user") User user);
+
+  void deleteByUser(User user);
 }

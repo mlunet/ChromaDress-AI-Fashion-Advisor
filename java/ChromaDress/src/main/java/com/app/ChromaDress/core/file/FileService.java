@@ -14,33 +14,33 @@ import java.util.UUID;
 @Service
 public class FileService {
 
-    @Value("${app.upload.dir}")
-    private String uploadDir;
+  @Value("${app.upload.dir}")
+  private String uploadDir;
 
-    public String saveFile(MultipartFile file) throws IOException {
-        Path uploadPath = Paths.get(uploadDir);
-        if (!Files.exists(uploadPath)) {
-            Files.createDirectories(uploadPath);
-        }
-
-        String fileName = UUID.randomUUID() + "_" + file.getOriginalFilename();
-        Path filePath = uploadPath.resolve(fileName);
-
-        Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
-
-        return fileName;
+  public String saveFile(MultipartFile file) throws IOException {
+    Path uploadPath = Paths.get(uploadDir);
+    if (!Files.exists(uploadPath)) {
+      Files.createDirectories(uploadPath);
     }
 
-    public void deleteFile(String fileName) {
-        if (fileName == null || fileName.isEmpty()) {
-            return;
-        }
+    String fileName = UUID.randomUUID() + "_" + file.getOriginalFilename();
+    Path filePath = uploadPath.resolve(fileName);
 
-        try {
-            Path filePath = Paths.get(uploadDir).resolve(fileName);
-            Files.deleteIfExists(filePath);
-        } catch (IOException e) {
-            System.err.println("Could not delete file: " + fileName + ". Error: " + e.getMessage());
-        }
+    Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
+
+    return fileName;
+  }
+
+  public void deleteFile(String fileName) {
+    if (fileName == null || fileName.isEmpty()) {
+      return;
     }
+
+    try {
+      Path filePath = Paths.get(uploadDir).resolve(fileName);
+      Files.deleteIfExists(filePath);
+    } catch (IOException e) {
+      System.err.println("Could not delete file: " + fileName + ". Error: " + e.getMessage());
+    }
+  }
 }

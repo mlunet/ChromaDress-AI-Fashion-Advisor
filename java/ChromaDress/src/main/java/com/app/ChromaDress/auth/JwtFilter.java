@@ -20,50 +20,53 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class JwtFilter extends OncePerRequestFilter {
 
-    private final JwtService jwtService;
-    private final JpaUserDetailsService userDetailsService;
+  private final JwtService jwtService;
+  private final JpaUserDetailsService userDetailsService;
 
-    @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+  @Override
+  protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
+      FilterChain filterChain) throws ServletException, IOException {
 
-        String authHeader = request.getHeader("Authorization");
-        String token;
-        String username;
+    String authHeader = request.getHeader("Authorization");
+    String token;
+    String username;
 
-        try {
-            if (authHeader != null && authHeader.startsWith("Bearer ")) {
-                token = authHeader.substring(7);
-                username = jwtService.extractUsername(token);
+    try {
+      if (authHeader != null && authHeader.startsWith("Bearer ")) {
+        token = authHeader.substring(7);
+        username = jwtService.extractUsername(token);
 
-                if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-                    UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+        if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+          UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 
-                    if (jwtService.validateToken(token, userDetails)) {
-                        UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
-                        authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                        SecurityContextHolder.getContext().setAuthentication(authToken);
-                    }
-                }
-            }
-
-            filterChain.doFilter(request, response);
-        } catch (ExpiredJwtException e) {
-            sendErrorResponse(response, "TokenExpiredException", "JWT token has expired.");
-        } catch (JwtException | IllegalArgumentException e) {
-            sendErrorResponse(response, "InvalidTokenException", "Invalid JWT token.");
+          if (jwtService.validateToken(token, userDetails)) {
+            UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
+                userDetails, null, userDetails.getAuthorities());
+            authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+            SecurityContextHolder.getContext().setAuthentication(authToken);
+          }
         }
-    }
+      }
 
-    private void sendErrorResponse(HttpServletResponse response, String type, String message) throws IOException {
-        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-        response.setContentType("application/json");
-        String json = String.format("""
-                {
-                    "status": "error",
-                    "type": "%s",
-                    "message": "%s"
-                }
-                """, type, message);
-        response.getWriter().write(json);
+      filterChain.doFilter(request, response);
+    } catch (ExpiredJwtException e) {
+      sendErrorResponse(response, "TokenExpiredException", "JWT token has expired.");
+    } catch (JwtException | IllegalArgumentException e) {
+      sendErrorResponse(response, "InvalidTokenException", "Invalid JWT token.");
     }
+  }
+
+  private void sendErrorResponse(HttpServletResponse response, String type, String message)
+      throws IOException {
+    response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+    response.setContentType("application/json");
+    String json = String.format("""
+        {
+            "status": "error",
+            "type": "%s",
+            "message": "%s"
+        }
+        """, type, message);
+    response.getWriter().write(json);
+  }
 }

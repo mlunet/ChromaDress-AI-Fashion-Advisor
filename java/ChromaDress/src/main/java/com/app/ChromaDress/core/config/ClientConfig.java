@@ -12,19 +12,15 @@ import reactor.netty.http.client.HttpClient;
 @Configuration
 public class ClientConfig {
 
-    @Value("${python.service.url}")
-    private String pythonBaseUrl;
+  @Value("${python.service.url}")
+  private String pythonBaseUrl;
 
-    @Bean
-    public WebClient webClient() {
-        HttpClient httpClient = HttpClient.create()
-                .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 10000)
-                .doOnConnected(conn -> conn
-                        .addHandlerLast(new ReadTimeoutHandler(10)));
+  @Bean
+  public WebClient webClient() {
+    HttpClient httpClient = HttpClient.create().option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 10000)
+        .doOnConnected(conn -> conn.addHandlerLast(new ReadTimeoutHandler(10)));
 
-        return WebClient.builder()
-                .baseUrl(pythonBaseUrl)
-                .clientConnector(new ReactorClientHttpConnector(httpClient))
-                .build();
-    }
+    return WebClient.builder().baseUrl(pythonBaseUrl)
+        .clientConnector(new ReactorClientHttpConnector(httpClient)).build();
+  }
 }

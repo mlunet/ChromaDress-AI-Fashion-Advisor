@@ -13,17 +13,15 @@ import java.time.Duration;
 @EnableCaching
 public class RedisCacheConfig {
 
-    @Bean
-    public RedisCacheManager cacheManager(RedisConnectionFactory redisConnectionFactory) {
-        return RedisCacheManager.builder(redisConnectionFactory)
-                .cacheDefaults(redisCacheConfiguration())
-                .build();
-    }
+  @Bean
+  public RedisCacheManager cacheManager(RedisConnectionFactory redisConnectionFactory) {
+    return RedisCacheManager.builder(redisConnectionFactory)
+        .cacheDefaults(redisCacheConfiguration()).build();
+  }
 
-    @Bean
-    public RedisCacheConfiguration redisCacheConfiguration() {
-        return RedisCacheConfiguration.defaultCacheConfig()
-                .entryTtl(Duration.ofDays(7))
-                .disableCachingNullValues();
-    }
+  @Bean
+  public RedisCacheConfiguration redisCacheConfiguration() {
+    return RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofDays(7))
+        .disableCachingNullValues();
+  }
 }

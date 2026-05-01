@@ -11,9 +11,9 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ValidImage {
 
-    String message() default "Invalid image file. Only PNG and JPEG images are supported.";
+  String message() default "Invalid image file. Only PNG and JPEG images are supported.";
 
-    Class<?>[] groups() default {};
+  Class<?>[] groups() default {};
 
-    Class<? extends Payload>[] payload() default {};
+  Class<? extends Payload>[] payload() default {};
 }

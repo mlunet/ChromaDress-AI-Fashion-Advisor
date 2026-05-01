@@ -15,20 +15,20 @@ import java.util.List;
 @Getter
 public class UserPrincipal implements UserDetails {
 
-    private final User user;
+  private final User user;
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
-    }
+  @Override
+  public Collection<? extends GrantedAuthority> getAuthorities() {
+    return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+  }
 
-    @Override
-    public @Nullable String getPassword() {
-        return user.getPassword();
-    }
+  @Override
+  public @Nullable String getPassword() {
+    return user.getPassword();
+  }
 
-    @Override
-    public String getUsername() {
-        return user.getUsername();
-    }
+  @Override
+  public String getUsername() {
+    return user.getUsername();
+  }
 }

@@ -12,17 +12,17 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class SecurityUtils {
 
-    private final UserRepository userRepository;
+  private final UserRepository userRepository;
 
-    public User getUserPrincipal() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+  public User getUserPrincipal() {
+    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-        if (authentication == null || !authentication.isAuthenticated()) {
-            throw new ResourceNotFoundException("User is not logged in or session is expired.");
-        }
-
-        String username = authentication.getName();
-        return userRepository.findByUsername(username)
-                .orElseThrow(() -> new ResourceNotFoundException("User not found."));
+    if (authentication == null || !authentication.isAuthenticated()) {
+      throw new ResourceNotFoundException("User is not logged in or session is expired.");
     }
+
+    String username = authentication.getName();
+    return userRepository.findByUsername(username)
+        .orElseThrow(() -> new ResourceNotFoundException("User not found."));
+  }
 }

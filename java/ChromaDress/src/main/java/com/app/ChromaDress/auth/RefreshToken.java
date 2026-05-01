@@ -15,18 +15,14 @@ import java.time.Instant;
 @Table(name = "refresh_tokens")
 public class RefreshToken {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(nullable = false)
-    private String token;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
-
-    private Instant expiryDate;
-
-    private boolean revoked = false;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+  @Column(nullable = false)
+  private String token;
+  @ManyToOne
+  @JoinColumn(name = "user_id", referencedColumnName = "id")
+  private User user;
+  private Instant expiryDate;
+  private boolean revoked = false;
 }

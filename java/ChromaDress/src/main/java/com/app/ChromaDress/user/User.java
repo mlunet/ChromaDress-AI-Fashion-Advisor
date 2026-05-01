@@ -15,19 +15,19 @@ import java.util.List;
 @Table(name = "app_users")
 public class User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @Column(unique = true, nullable = false)
-    private String username;
+  @Column(unique = true, nullable = false)
+  private String username;
 
-    @Column(nullable = false)
-    private String password;
+  @Column(nullable = false)
+  private String password;
 
-    @Column(unique = true, nullable = false)
-    private String email;
+  @Column(unique = true, nullable = false)
+  private String email;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ClothingItem> closet = new ArrayList<>();
+  @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+  private List<ClothingItem> closet = new ArrayList<>();
 }

@@ -7,27 +7,22 @@ import org.springframework.stereotype.Component;
 @Component
 public class ClothingItemMapper {
 
-    @Value("${app.upload.base-url}")
-    private String baseUrl;
+  @Value("${app.upload.base-url}")
+  private String baseUrl;
 
-    public ClothingItem RequestDtoToEntity(ClothingRequestDTO dto, User user) {
+  public ClothingItem RequestDtoToEntity(ClothingRequestDTO dto, User user) {
 
-        ClothingItem item = new ClothingItem();
-        item.setName(dto.name());
-        item.setCategory(dto.category());
-        item.setUser(user);
+    ClothingItem item = new ClothingItem();
+    item.setName(dto.name());
+    item.setCategory(dto.category());
+    item.setUser(user);
 
-        return item;
-    }
+    return item;
+  }
 
-    public ClothingResponseDTO EntityToResponseDto(ClothingItem item) {
+  public ClothingResponseDTO EntityToResponseDto(ClothingItem item) {
 
-        return new ClothingResponseDTO(
-                item.getId(),
-                item.getName(),
-                item.getCategory(),
-                item.getHexColor(),
-                baseUrl + item.getImageUrl()
-        );
-    }
+    return new ClothingResponseDTO(item.getId(), item.getName(), item.getCategory(),
+        item.getHexColor(), baseUrl + item.getImageUrl());
+  }
 }

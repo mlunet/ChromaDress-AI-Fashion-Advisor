@@ -16,29 +16,25 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class AnalysisService {
 
-    private final WebClient webClient;
+  private final WebClient webClient;
 
-    public AnalysisDTO analyzeImage(MultipartFile file) {
+  public AnalysisDTO analyzeImage(MultipartFile file) {
 
-        MultipartBodyBuilder builder = new MultipartBodyBuilder();
-        builder.part("file", file.getResource());
+    MultipartBodyBuilder builder = new MultipartBodyBuilder();
+    builder.part("file", file.getResource());
 
-        return webClient.post()
-                .uri("/analyze")
-                .contentType(MediaType.MULTIPART_FORM_DATA)
-                .accept(MediaType.APPLICATION_JSON)
-                .body(BodyInserters.fromMultipartData(builder.build()))
-                .retrieve()
-                .onStatus(HttpStatusCode::isError, response ->
-                        response.bodyToMono(Map.class)
-                                .flatMap(errorBody -> {
-                                    String message = (String) errorBody.getOrDefault("message", "Analysis service momentarily unavailable.");
-                                    String type = (String) errorBody.getOrDefault("type", "AnalysisServiceError");
-                                    int statusCode = response.statusCode().value();
-                                    return Mono.<Throwable>error(new PythonAnalysisException(message, type, statusCode));
-                                })
-                                .switchIfEmpty(Mono.error(new PythonAnalysisException("The server did not respond correctly. Please try again in a few moments.", "ServiceUnavailable", response.statusCode().value()))))
-                .bodyToMono(AnalysisDTO.class)
-                .block();
-    }
+    return webClient.post().uri("/analyze").contentType(MediaType.MULTIPART_FORM_DATA)
+        .accept(MediaType.APPLICATION_JSON).body(BodyInserters.fromMultipartData(builder.build()))
+        .retrieve().onStatus(HttpStatusCode::isError,
+            response -> response.bodyToMono(Map.class).flatMap(errorBody -> {
+              String message = (String) errorBody.getOrDefault("message",
+                  "Analysis service momentarily unavailable.");
+              String type = (String) errorBody.getOrDefault("type", "AnalysisServiceError");
+              int statusCode = response.statusCode().value();
+              return Mono.<Throwable>error(new PythonAnalysisException(message, type, statusCode));
+            }).switchIfEmpty(Mono.error(new PythonAnalysisException(
+                "The server did not respond correctly. Please try again in a few moments.",
+                "ServiceUnavailable", response.statusCode().value()))))
+        .bodyToMono(AnalysisDTO.class).block();
+  }
 }
