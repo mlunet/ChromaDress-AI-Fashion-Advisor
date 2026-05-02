@@ -25,7 +25,7 @@ The fastest way to spin up the entire ecosystem is using Docker Compose:
 
 1. **Clone the repository**:
   ```bash
-  git clone https://github.com/mlunet/ChromaDress-AI-Fashion-Advisor.git
+  git clone https://github.com/mlunet/ChromaDress-AI-Fashion-Advisor.git ChromaDress
   cd ChromaDress
   ```
 2. **Setup Environment Variables**:
