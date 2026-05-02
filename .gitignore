@@ -48,6 +48,7 @@ Thumbs.db
 **.war
 *.class
 .mvn/wrapper/maven-wrapper.jar
+*/docker-compose.yml
 HELP.md
 
 ## ANGULAR
